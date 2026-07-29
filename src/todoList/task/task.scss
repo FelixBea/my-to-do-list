@@ -1,0 +1,22 @@
+.task {
+  width: 100%;
+  padding: var(--spacing3);
+  background-color: var(--neutral-light-medium);
+  border-radius: var(--spacing2);
+  display: flex;
+  flex-flow: row nowrap;
+  gap: var(--spacing3);
+
+  h2 {
+    margin: 0;
+  }
+
+  .content {
+    flex: 1 0 auto;
+    display: flex;
+    flex-flow: column nowrap;
+  }
+  .button-area {
+    flex: 0 1 auto;
+  }
+}
