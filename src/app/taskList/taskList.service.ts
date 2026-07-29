@@ -2,7 +2,7 @@ import { Service } from '@angular/core';
 import { TaskProps } from '.';
 
 @Service()
-export class TaskService {
+export class TaskListService {
   protected taskList: TaskProps[] = [
     {
       id: 1,

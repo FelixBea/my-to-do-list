@@ -1,0 +1,5 @@
+<section>
+    @for (task of taskList; track task.id) {
+        <app-task [task]="task" />
+    }
+</section>
