@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { TaskProps } from './task/task';
-import { Task } from './task/task.component';
-import { TaskListService } from '.';
+import { TaskProps } from '../task/task';
+import { Task } from '../task/task.component';
+import { TaskListService } from '../../../services/taskList';
 
 @Component({
   selector: 'app-task-list',

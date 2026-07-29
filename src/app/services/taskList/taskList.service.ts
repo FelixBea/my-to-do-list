@@ -1,5 +1,5 @@
 import { Service } from '@angular/core';
-import { TaskProps } from '.';
+import { TaskProps } from '../../components/todoList/taskList';
 
 @Service()
 export class TaskListService {
