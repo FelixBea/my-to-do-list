@@ -1,8 +1,8 @@
 import { Service } from '@angular/core';
-import { TaskProps } from '../../components/todoList/taskList';
+import { TaskProps } from './task/task';
 
 @Service()
-export class TaskListService {
+export class TodoListService {
   protected taskList: TaskProps[] = [
     {
       id: 1,

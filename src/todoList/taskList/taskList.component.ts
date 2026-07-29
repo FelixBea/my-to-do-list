@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { TaskProps } from '../task/task';
 import { Task } from '../task/task.component';
-import { TaskListService } from '../../../services/taskList';
+import { TodoListService } from '../todoList.service';
 
 @Component({
   selector: 'app-task-list',
@@ -10,10 +10,10 @@ import { TaskListService } from '../../../services/taskList';
   styleUrl: './taskList.scss',
 })
 export class TaskList {
-  taskListService: TaskListService = inject(TaskListService);
+  todoListService: TodoListService = inject(TodoListService);
   taskList: TaskProps[];
 
   constructor() {
-    this.taskList = this.taskListService.getAllTasks();
+    this.taskList = this.todoListService.getAllTasks();
   }
 }
