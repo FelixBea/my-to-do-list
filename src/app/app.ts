@@ -1,21 +1,19 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Task } from './task/task';
-import { TaskProps } from './task';
+import { Task, TaskProps, TaskService } from './task';
 
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, Task],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
 })
 export class App {
   protected readonly title = 'my-to-do-list';
+  taskService: TaskService = inject(TaskService);
+  exampleTask: TaskProps;
 
-  exampleTask: TaskProps = {
-    id: 1,
-    title: "Example task title",
-    description: "Example task description",
-    completed: false
+  constructor() {
+    this.exampleTask = this.taskService.getAllTasks()[0];
   }
 }
