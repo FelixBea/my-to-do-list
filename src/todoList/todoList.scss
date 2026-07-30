@@ -1,0 +1,17 @@
+.todo-list {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+
+  .content {
+    flex: 1 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    gap: var(--spacing5);
+
+    .container {
+      width: 100%;
+      max-width: 400px;
+    }
+  }
+}

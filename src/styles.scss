@@ -1,21 +1,40 @@
 /* global styles */
 
 :root {
-    /* spacing */
-    --spacing1: 0.25rem;
-    --spacing2: 0.5rem;
-    --spacing3: 0.75rem;
-    --spacing4: 1rem;
-    --spacing5: 1.5rem;
-    --spacing6: 2rem;
-    --spacing7: 3rem;
-    
-    /* colors */
-    --neutral-white: #ffffff;
-    --neutral-light-medium: #D0D0D0;
-    --neutral-medium: #a0a0a0;
-    --neutral-black: #171717;
-    --primary: rgb(13, 224, 196);
-    --secondary: rgba(0, 183, 255, 0.589);
+  /* spacing */
+  --spacing1: 0.25rem;
+  --spacing2: 0.5rem;
+  --spacing3: 0.75rem;
+  --spacing4: 1rem;
+  --spacing5: 1.5rem;
+  --spacing6: 2rem;
+  --spacing7: 3rem;
+
+  /* colors */
+  --neutral-white: #ffffff;
+  --neutral-light-medium: #d0d0d0;
+  --neutral-medium: #a0a0a0;
+  --neutral-black: #171717;
+  --primary: rgb(13, 224, 196);
+  --secondary: rgba(0, 183, 255, 0.589);
 }
 
+body {
+  margin: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+app-root {
+  box-sizing: inherit;
+  width: 100%;
+  flex: 1 0 auto;
+  max-width: 1440px;
+  min-height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
