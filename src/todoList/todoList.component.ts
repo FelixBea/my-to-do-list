@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { TaskList } from './taskList/taskList.component';
 import { TaskForm } from './task-form/task-form.component';
-import { signal, computed } from '@angular/core';
+import { signal } from '@angular/core';
 import { TaskProps } from './task/task';
+import { TodoListService } from './todo-list.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -12,10 +13,15 @@ import { TaskProps } from './task/task';
 })
 export class TodoList {
   protected taskList = signal<TaskProps[]>([]);
+  todoListService = inject(TodoListService);
+
+  constructor() {
+    this.taskList.set(this.todoListService.retrieveTaskList());
+  }
 
   addTaskToList(newTask: TaskProps): void {
     this.taskList.update((prevList) => prevList.concat(newTask));
-    console.log(this.taskList());
+    this.todoListService.saveTaskList(this.taskList());
   }
 
   markAsCompleted({ completed, id }: TaskProps) {
@@ -27,6 +33,6 @@ export class TodoList {
     });
 
     this.taskList.set(updatedTaskList);
-    console.log(this.taskList());
+    this.todoListService.saveTaskList(this.taskList());
   }
 }

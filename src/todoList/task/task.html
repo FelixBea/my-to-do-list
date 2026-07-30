@@ -1,9 +1,13 @@
-<article class="task" [class]="{'completed': task().completed }">
+<article class="task" [class]="{ completed: task().completed }">
   <div class="content">
     <h2>{{ task().title }}</h2>
     <p>{{ task().description }}</p>
   </div>
   <div class="button-area">
-    <mat-checkbox aria-label="Mark task as done" (change)="markAsCompleted($event, task().id)" />
+    <mat-checkbox
+      aria-label="Mark task as done"
+      (change)="markAsCompleted($event, task().id)"
+      [checked]="task().completed"
+    />
   </div>
 </article>
