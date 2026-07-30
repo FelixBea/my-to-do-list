@@ -1,6 +1,7 @@
-import { Component, inject, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { TaskProps } from '../task/task';
 import { Task } from '../task/task.component';
+import { MatCheckboxChange } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-task-list',
@@ -10,5 +11,9 @@ import { Task } from '../task/task.component';
 })
 export class TaskList {
   taskList = input<Array<TaskProps>>();
+  taskCompleted = output<TaskProps>();
 
+  markAsCompleted(event: TaskProps) {
+    this.taskCompleted.emit(event);
+  }
 }

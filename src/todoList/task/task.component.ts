@@ -1,6 +1,6 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { TaskProps } from './task';
-import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatCheckboxChange, MatCheckboxModule } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-task',
@@ -10,4 +10,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 })
 export class Task {
   task = input.required<TaskProps>();
+  taskCompleted = output<TaskProps>();
+
+  markAsCompleted({checked}: MatCheckboxChange, taskId: number) {
+    this.taskCompleted.emit({completed: checked, id: taskId});
+  }
 }

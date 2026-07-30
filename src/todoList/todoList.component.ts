@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { TaskList } from './taskList/taskList.component';
-import { TaskForm } from "./task-form/task-form.component";
-import {signal, computed} from '@angular/core';
+import { TaskForm } from './task-form/task-form.component';
+import { signal, computed } from '@angular/core';
 import { TaskProps } from './task/task';
 
 @Component({
@@ -14,9 +14,19 @@ export class TodoList {
   protected taskList = signal<TaskProps[]>([]);
 
   addTaskToList(newTask: TaskProps): void {
-    this.taskList.update(prevList => prevList.concat(newTask));
+    this.taskList.update((prevList) => prevList.concat(newTask));
     console.log(this.taskList());
   }
-  
-}
 
+  markAsCompleted({ completed, id }: TaskProps) {
+    const updatedTaskList = this.taskList().map((task) => {
+      if (task.id === id) {
+        task.completed = completed;
+      }
+      return task;
+    });
+
+    this.taskList.set(updatedTaskList);
+    console.log(this.taskList());
+  }
+}

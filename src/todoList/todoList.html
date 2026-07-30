@@ -7,7 +7,7 @@
       <app-task-form (newTaskCreated)="addTaskToList($event)"/>
     </div>
     <div class="task-list container">
-      <app-task-list [taskList]="taskList()" />
+      <app-task-list [taskList]="taskList()" (taskCompleted)="markAsCompleted($event)"/>
     </div>
   </div>
 </section>

@@ -17,4 +17,8 @@
     display: flex;
     flex-flow: column nowrap;
   }
+
+  &.completed {
+    color: var(--neutral-medium);
+  }
 }
