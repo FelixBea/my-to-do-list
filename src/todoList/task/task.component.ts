@@ -1,6 +1,7 @@
-import { Component, input, output } from '@angular/core';
+import { Component, inject, input, output } from '@angular/core';
 import { TaskProps } from './task';
 import { MatCheckboxChange, MatCheckboxModule } from '@angular/material/checkbox';
+import { TodoListService } from '../todo-list.service';
 
 @Component({
   selector: 'app-task',
@@ -9,10 +10,10 @@ import { MatCheckboxChange, MatCheckboxModule } from '@angular/material/checkbox
   styleUrl: './task.scss',
 })
 export class Task {
+  todoListService = inject(TodoListService);
   task = input.required<TaskProps>();
-  taskCompleted = output<TaskProps>();
 
   markAsCompleted({checked}: MatCheckboxChange, taskId: number) {
-    this.taskCompleted.emit({completed: checked, id: taskId});
+    this.todoListService.markAsCompleted({completed: checked, id: taskId});
   }
 }

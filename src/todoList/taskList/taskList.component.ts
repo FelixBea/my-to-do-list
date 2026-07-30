@@ -1,7 +1,7 @@
-import { Component, input, output } from '@angular/core';
+import { Component, Signal, inject } from '@angular/core';
 import { TaskProps } from '../task/task';
 import { Task } from '../task/task.component';
-import { MatCheckboxChange } from '@angular/material/checkbox';
+import { TodoListService } from '../todo-list.service';
 
 @Component({
   selector: 'app-task-list',
@@ -10,10 +10,6 @@ import { MatCheckboxChange } from '@angular/material/checkbox';
   styleUrl: './taskList.scss',
 })
 export class TaskList {
-  taskList = input<Array<TaskProps>>();
-  taskCompleted = output<TaskProps>();
-
-  markAsCompleted(event: TaskProps) {
-    this.taskCompleted.emit(event);
-  }
+  todoListService = inject(TodoListService);
+  taskList: Signal<TaskProps[]> = this.todoListService.getTaskList();
 }
