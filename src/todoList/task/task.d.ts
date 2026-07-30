@@ -1,6 +1,6 @@
 export interface TaskProps {
   id: number;
-  title: string;
-  description: string;
-  completed: boolean;
+  title?: string;
+  description?: string;
+  completed?: boolean;
 }

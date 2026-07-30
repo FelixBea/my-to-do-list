@@ -4,10 +4,10 @@
   </header>
   <div class="content">
     <div class="task-form container">
-      <app-task-form />
+      <app-task-form (newTaskCreated)="addTaskToList($event)"/>
     </div>
     <div class="task-list container">
-      <app-task-list />
+      <app-task-list [taskList]="taskList()" />
     </div>
   </div>
 </section>
