@@ -1,4 +1,5 @@
 /* global styles */
+@use './shared/styles/mixins';
 
 :root {
   /* spacing */
@@ -14,7 +15,8 @@
   --neutral-white: #ffffff;
   --neutral-light-medium: #d0d0d0;
   --neutral-medium: #a0a0a0;
-  --neutral-black: #171717;
+  --neutral-dark: #3b3939;
+  --neutral-black: #252222;
   --primary: rgb(13, 224, 196);
   --secondary: rgba(0, 183, 255, 0.589);
 }
@@ -25,15 +27,15 @@ body {
   display: flex;
   justify-content: center;
   box-sizing: border-box;
+  color: var(--neutral-black);
+  font-family:'Courier New', Courier, monospace;
+  font-size: var(--spacing3);
 }
 
 app-root {
-  box-sizing: inherit;
-  width: 100%;
-  flex: 1 0 auto;
+  @include mixins.container;
   max-width: 1440px;
   min-height: 100%;
-  display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;

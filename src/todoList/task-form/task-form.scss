@@ -1,0 +1,39 @@
+@use '../../shared/styles/mixins';
+
+form {
+  @include mixins.container;
+
+  flex-flow: column nowrap;
+  gap: var(--spacing3);
+  color: var(--neutral-dark);
+
+  .form-field {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+}
+
+input {
+    border: solid var(--neutral-dark) 1px;
+    border-radius: var(--spacing1);
+    margin-bottom: var(--spacing3);
+    min-height: var(--spacing5);
+}
+
+button {
+    padding: var(--spacing2);
+    border: 0;
+    border-radius: var(--spacing1);
+    color: var(--neutral-white);
+    background-color: var(--primary);
+    font-size: var(--spacing4);
+    font-weight: bold;
+
+    &:hover {
+        filter: brightness(120%);
+    }
+
+    &:active {
+        filter: brightness(80%);
+    }
+}
