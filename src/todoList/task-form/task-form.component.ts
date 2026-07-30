@@ -24,5 +24,7 @@ export class TaskForm {
       description: this.taskForm.value.description ?? '',
       id: Date.now(),
     });
+
+    this.taskForm.reset();
   }
 }

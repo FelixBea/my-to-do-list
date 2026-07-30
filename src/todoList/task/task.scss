@@ -7,17 +7,14 @@
   display: flex;
   flex-flow: row nowrap;
   gap: var(--spacing3);
+  justify-content: space-between;
 
   h2 {
     margin: 0;
   }
 
   .content {
-    flex: 1 0 auto;
     display: flex;
     flex-flow: column nowrap;
-  }
-  .button-area {
-    flex: 0 1 auto;
   }
 }
