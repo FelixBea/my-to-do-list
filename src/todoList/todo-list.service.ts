@@ -14,8 +14,8 @@ export class TodoListService {
     return this.taskList;
   }
 
-  saveTaskList(taskList: TaskProps[]) {
-    const jsonTaskList = JSON.stringify(taskList);
+  saveTaskList() {
+    const jsonTaskList = JSON.stringify(this.taskList());
     localStorage.setItem(this.STORAGE_KEY_TASK_LIST, jsonTaskList);
   }
 
@@ -26,7 +26,7 @@ export class TodoListService {
 
   addTaskToList(newTask: TaskProps): void {
     this.taskList.update((prevList) => prevList.concat(newTask));
-    this.saveTaskList(this.taskList());
+    this.saveTaskList();
   }
 
   markAsCompleted({ completed, id }: TaskProps) {
@@ -38,6 +38,12 @@ export class TodoListService {
     });
 
     this.taskList.set(updatedTaskList);
-    this.saveTaskList(this.taskList());
+    this.saveTaskList();
+  }
+
+  removeTask(id: number) {
+    const updatedTaskList = this.taskList().filter(task => task.id !== id)
+    this.taskList.set(updatedTaskList);
+    this.saveTaskList();
   }
 }

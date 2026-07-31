@@ -3,11 +3,14 @@
     <h2>{{ task().title }}</h2>
     <p>{{ task().description }}</p>
   </div>
-  <div class="button-area">
+  <div class="button-area content">
     <mat-checkbox
-      aria-label="Mark task as done"
+      title="Mark task as done"
       (change)="markAsCompleted($event, task().id)"
       [checked]="task().completed"
     />
+    <button matIconButton title="Remove task" (click)="removeTask(task().id)">
+      <mat-icon aria-hidden fontIcon="delete"></mat-icon>
+    </button>
   </div>
 </article>
